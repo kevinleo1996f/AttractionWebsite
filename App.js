@@ -1,5 +1,5 @@
 export default function registration(){
-    return 20;
+    return 100;
 }
 
 export function login(){
