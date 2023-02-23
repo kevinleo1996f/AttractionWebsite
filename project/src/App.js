@@ -1,6 +1,7 @@
 
 import './App.css';
 import BasicExample from './components/navbar';
+import Filter from './components/filter';
 
 function App() {
   return (
@@ -8,6 +9,9 @@ function App() {
       <header className="App-header">
         <BasicExample />
       </header>
+      <main>
+        <Filter />
+      </main>
     </div>
   );
 }
