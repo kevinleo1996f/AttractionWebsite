@@ -16,10 +16,14 @@ const Card = ({ item }) => {
                 </div>
                 <div className="card-body">
                   <div className="card-title fw-bold fs-4">
-                    {Val.name} &nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;
-                    {Val.price}
+                    <h1>{Val.name} </h1>
+                    <p>{Val.price}</p>
                   </div>
-                  <div className="card-text">{Val.location}</div>
+                  <div className="card-text">
+                    <p>{Val.location}</p>
+                    <p>{Val.guest}</p>
+                    <p>{Val.duration}</p>
+                  </div>
                 </div>
               </div>
             );

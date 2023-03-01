@@ -40,7 +40,7 @@ const Data = [
         img: '../images/national-park-tour.jpg',
         name: "National park Hiking with guide",
         price: "20AUD per",
-        guest: "9",
+        guest: "1~9",
         duration: "6hour",
         location: "Phillip Island"
     },
