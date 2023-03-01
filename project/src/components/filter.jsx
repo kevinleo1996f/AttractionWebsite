@@ -34,7 +34,11 @@ function Filter() {
           setItem={setItem}
           locationItems={locationItems}
         />
-        
+        <GuestDd 
+            filterGuests={filterGuests}
+            setItem={setItem}
+            guestsItems={guestsItems}
+        />
         <Card item={item} />
       </div>
     </div>
