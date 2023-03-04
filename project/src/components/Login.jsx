@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Login() {
+  const [name, setName] = useState("")  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -8,9 +9,11 @@ export default function Login() {
   useEffect(() => {
     const emailFromStorage = localStorage.getItem("email");
     const passwordFromStorage = localStorage.getItem("password");
-    if (emailFromStorage && passwordFromStorage) {
-      setEmail(emailFromStorage);
-      setPassword(passwordFromStorage);
+    const nameFromStorage = localStorage.getItem("name");
+    if (emailFromStorage && passwordFromStorage && nameFromStorage) {
+        setName(nameFromStorage);
+        setEmail(emailFromStorage);
+        setPassword(passwordFromStorage);
     }
   }, []);
 
@@ -20,7 +23,7 @@ export default function Login() {
     const user = JSON.parse(localStorage.getItem(email));
     if (user && user.password === password) {
       setIsLoggedIn(true);
-      alert("You're Logged in")
+      alert("You're Logged in" + {name})
     } else {
       alert("Invalid email or password");
     }
@@ -50,7 +53,7 @@ export default function Login() {
         <br />
         <button type="submit">Login</button>
       </form>
-      {isLoggedIn && <p>You are logged in!</p>}
+      {isLoggedIn && <p>You are logged in {name}!</p>}
     </div>
   );
 }
