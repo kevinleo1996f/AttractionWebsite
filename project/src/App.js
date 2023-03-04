@@ -1,5 +1,5 @@
 import Reg from "./components/registration";
-import React, { useState } from "react";
+import Login from "./components/Login";
 import "./App.css";
 import BasicExample from "./components/navbar";
 import Filter from "./components/filter";
@@ -15,6 +15,7 @@ function App() {
         <Filter />
 
         {Reg()}
+        {Login()}
       </main>
     </div>
   );
