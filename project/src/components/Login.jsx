@@ -20,9 +20,7 @@ export default function Login() {
     const user = JSON.parse(localStorage.getItem(email));
     if (user && user.password === password) {
       setIsLoggedIn(true);
-      // Store email and password in LocalStorage
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      alert("You're Logged in")
     } else {
       alert("Invalid email or password");
     }
