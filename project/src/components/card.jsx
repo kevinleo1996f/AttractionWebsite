@@ -17,12 +17,12 @@ const Card = ({ item }) => {
                 <div className="card-body">
                   <div className="card-title fw-bold fs-4">
                     <h1>{Val.name} </h1>
-                    <p>{Val.price}</p>
+                    <p>{Val.price}$AUD</p>
                   </div>
                   <div className="card-text">
                     <p>{Val.location}</p>
-                    <p>{Val.guest}</p>
-                    <p>{Val.duration}</p>
+                    <p>{Val.guest} Guests</p>
+                    <p>Duration: {Val.duration}</p>
                   </div>
                 </div>
               </div>

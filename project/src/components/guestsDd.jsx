@@ -1,17 +1,18 @@
 import React from "react";
 import Data from "./cardData";
 import Dropdown from "react-bootstrap/Dropdown";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 var guestButton = "Add Guest";
 
-const GuestDd = ({ filterGuests, setItem, guestsItems }) => {
+const GuestDd = ({ filterGuests, setItem }) => {
+  //Set() is used so the values are not repeated, only unique values will show
+  const guestsItems = [...new Set(Data.map((Val) => Val.guest))];
   return (
     <>
       <div className="d-flex justify-content-center">
-        <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {guestButton}
-          </Dropdown.Toggle>
+        <DropdownButton as={ButtonGroup} title={guestButton} id="bg-nested-dropdown">
 
           <Dropdown.Menu>
             {guestsItems.map((Val, id) => {
@@ -19,11 +20,11 @@ const GuestDd = ({ filterGuests, setItem, guestsItems }) => {
                 <Dropdown.Item
                   onClick={() => {
                     filterGuests(Val);
-                    guestButton = Val;
+                    guestButton = Val + " Guests";
                   }}
                   key={id}
                 >
-                  {Val}
+                  {Val} People
                 </Dropdown.Item>
               );
             })}
@@ -36,7 +37,7 @@ const GuestDd = ({ filterGuests, setItem, guestsItems }) => {
               All
             </Dropdown.Item>
           </Dropdown.Menu>
-        </Dropdown>
+        </DropdownButton>
       </div>
     </>
   );
