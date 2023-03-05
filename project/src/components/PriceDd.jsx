@@ -1,27 +1,26 @@
 import React from "react";
 import Data from "./cardData";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
-var locationButton = "Anywhere";
+var priceButton = "Price Range";
 
-const LocationDd = ({ filterLocation, setItem }) => {
-  //Set() is used so the values are not repeated, only unique values will show
-  const locationItems = [...new Set(Data.map((Val) => Val.location))];
-  
+
+const PriceDd = ({ filterPrice, setItem }) => {
+    const priceItems = ["20-50$","50-150$","150-...$"];
   return (
     <>
       <div className="d-flex justify-content-center">
-        <DropdownButton as={ButtonGroup} title={locationButton} id="bg-nested-dropdown">
+        <DropdownButton as={ButtonGroup} title={priceButton} id="bg-nested-dropdown">
 
           <Dropdown.Menu>
-            {locationItems.map((Val, id) => {
+            {priceItems.map((Val, id) => {
               return (
                 <Dropdown.Item
                   onClick={() => {
-                    filterLocation(Val);
-                    locationButton = Val;
+                    filterPrice(Val);
+                    priceButton = Val;
                   }}
                   key={id}
                 >
@@ -32,7 +31,7 @@ const LocationDd = ({ filterLocation, setItem }) => {
             <Dropdown.Item
               onClick={() => {
                 setItem(Data);
-                locationButton = "Anywhere";
+                priceButton = "Add Guest";
               }}
             >
               All
@@ -41,7 +40,7 @@ const LocationDd = ({ filterLocation, setItem }) => {
         </DropdownButton>
       </div>
     </>
-  );
+  )
 };
 
-export default LocationDd;
+export default PriceDd;
