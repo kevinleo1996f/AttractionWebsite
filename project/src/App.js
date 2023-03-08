@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import "./App.css";
 import BasicExample from "./components/navbar";
 import Filter from "./components/filter";
+import Reset from "./components/resetPassword";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
         {Reg()}
         {Login()}
+        {Reset()}
       </main>
     </div>
   );
