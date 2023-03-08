@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 function Filter() {
   const [item, setItem] = useState(Data);
+  let filteredItems;
 
   //Filter will receive a value from click and compare with all the category in the database, if it is the same, then it will show the item card.
 
@@ -43,8 +44,7 @@ function Filter() {
     setItem(newItem);
   };
   function handleOnClick() {
-  
-    console.log()
+    console.log(1);
   }
 
   return (

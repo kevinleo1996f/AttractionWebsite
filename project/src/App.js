@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import "./App.css";
 import BasicExample from "./components/navbar";
 import Filter from "./components/filter";
+import CardPopUp from "./components/cardPopUp";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       </header>
 
       <main>
+        <CardPopUp />
         <Filter />
 
         {Reg()}
