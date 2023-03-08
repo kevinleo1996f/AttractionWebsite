@@ -4,6 +4,7 @@ import "./App.css";
 import BasicExample from "./components/navbar";
 import Filter from "./components/filter";
 import Reset from "./components/resetPassword";
+import CardPopUp from "./components/cardPopUp";
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
       <main>
         <CardPopUp />
         <Filter />
-
         {Reg()}
         {Login()}
         {Reset()}
+        
       </main>
     </div>
   );
