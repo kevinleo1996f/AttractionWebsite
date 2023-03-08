@@ -9,21 +9,21 @@ export default function Login() {
   useEffect(() => {
     const emailFromStorage = localStorage.getItem("email");
     const passwordFromStorage = localStorage.getItem("password");
-    const nameFromStorage = localStorage.getItem("name");
-    if (emailFromStorage && passwordFromStorage && nameFromStorage) {
-        setName(nameFromStorage);
-        setEmail(emailFromStorage);
-        setPassword(passwordFromStorage);
+    if (emailFromStorage && passwordFromStorage) {
+      setEmail(emailFromStorage);
+      setPassword(passwordFromStorage);
     }
   }, []);
+  
 
   function handleSubmit(event) {
     event.preventDefault();
     // Retrieve user object from LocalStorage
     const user = JSON.parse(localStorage.getItem(email));
     if (user && user.password === password) {
+      setName(user.username);
       setIsLoggedIn(true);
-      alert("You're Logged in" + {name})
+      alert(`You're Logged in ${name}`);
     } else {
       alert("Invalid email or password");
     }
