@@ -2,7 +2,7 @@ import React from "react";
 import Data from "./cardData";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+
 
 var locationButton = "Anywhere";
 
@@ -12,10 +12,8 @@ const LocationDd = ({ filterLocation, setItem }) => {
   
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <DropdownButton as={ButtonGroup} title={locationButton} id="bg-nested-dropdown">
-
-          <Dropdown.Menu>
+      <div>
+        <DropdownButton id="dropdown-basic-button" title={locationButton}>
             {locationItems.map((Val, id) => {
               return (
                 <Dropdown.Item
@@ -37,7 +35,6 @@ const LocationDd = ({ filterLocation, setItem }) => {
             >
               All
             </Dropdown.Item>
-          </Dropdown.Menu>
         </DropdownButton>
       </div>
     </>

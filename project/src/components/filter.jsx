@@ -3,9 +3,9 @@ import Card from "./card";
 import LocationDd from "./locationDd";
 import React, { useState } from "react";
 import GuestDd from './guestsDd'
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import PriceDd from './PriceDd';
 import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 function Filter() {
   const [item, setItem] = useState(Data);
@@ -49,7 +49,7 @@ function Filter() {
 
   return (
     <div>
-      <ButtonGroup>
+      <Stack direction="horizontal" gap={3} className="col-md-5 mx-auto">
         <LocationDd
             filterLocation={filterLocation}
             setItem={setItem}
@@ -63,7 +63,7 @@ function Filter() {
             setItem={setItem}
         />
         <Button onClick={handleOnClick}><i class="fa fa-search"></i></Button>
-      </ButtonGroup>
+        </Stack>
         <Card item={item} />
     </div>
   );

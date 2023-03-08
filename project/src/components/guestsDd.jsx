@@ -1,7 +1,6 @@
 import React from "react";
 import Data from "./cardData";
 import Dropdown from "react-bootstrap/Dropdown";
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 var guestButton = "Add Guest";
@@ -11,10 +10,8 @@ const GuestDd = ({ filterGuests, setItem }) => {
   const guestsItems = [...new Set(Data.map((Val) => Val.guest))];
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <DropdownButton as={ButtonGroup} title={guestButton} id="bg-nested-dropdown">
-
-          <Dropdown.Menu>
+      <div >
+        <DropdownButton id="dropdown-basic-button" title={guestButton}>
             {guestsItems.map((Val, id) => {
               return (
                 <Dropdown.Item
@@ -36,7 +33,6 @@ const GuestDd = ({ filterGuests, setItem }) => {
             >
               All
             </Dropdown.Item>
-          </Dropdown.Menu>
         </DropdownButton>
       </div>
     </>
