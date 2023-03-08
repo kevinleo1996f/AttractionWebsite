@@ -19,7 +19,6 @@ export default function Reset(){
         const user = JSON.parse(localStorage.getItem(email))
         if(user){
             setIsLoggedIn(true);
-            localStorage.removeItem(user.password)
         } else{
             alert("Invalid email");
         }
@@ -27,9 +26,8 @@ export default function Reset(){
 
     function handleClick(event){
         event.preventDefault();
-        const user = JSON.parse(localStorage.getItem(email))
-        
-        user.password = {password};
+        const user = JSON.parse(localStorage.getItem(email));
+        user.password = password;
         localStorage.setItem(email, JSON.stringify(user));
     }
 
