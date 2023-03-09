@@ -1,14 +1,14 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from "react-router-dom";
 
 
-
-function BasicExample() {
+function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="./">
             <img
               alt="logo"
               src="../icon.jpg"
@@ -21,8 +21,8 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-end">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Register/Login</Nav.Link>
+            <Nav.Link href="./">Home</Nav.Link>
+            <Nav.Link href="./register">Register/Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -30,4 +30,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default NavBar;

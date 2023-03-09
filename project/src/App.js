@@ -1,27 +1,21 @@
-import Reg from "./components/registration";
-import Login from "./components/Login";
 import "./App.css";
-import BasicExample from "./components/navbar";
-import Filter from "./components/filter";
-import Reset from "./components/resetPassword";
-import CardPopUp from "./components/cardPopUp";
+import NavBar from "./components/navbar";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from './components/register'
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <header className="App-header">
-        <BasicExample />
+        <NavBar />
       </header>
 
-      <main>
-        <CardPopUp />
-        <Filter />
-        {Reg()}
-        {Login()}
-        {Reset()}
-        
-      </main>
-    </div>
+      <Routes>
+        <Route exact path ='/' element={<Home />} />
+        <Route exact path ='/register' element={<Register />} />        
+      </Routes>
+    </BrowserRouter>
   );
 }
 
