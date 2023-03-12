@@ -9,6 +9,9 @@ import Stack from 'react-bootstrap/Stack';
 
 function Filter() {
   const [item, setItem] = useState(Data);
+  const [guest, setGuest] = useState(Data);
+  const [price, setPrice] = useState(Data);
+  
   let filteredItems;
 
   //Filter will receive a value from click and compare with all the category in the database, if it is the same, then it will show the item card.
@@ -18,34 +21,45 @@ function Filter() {
       return newVal.location === curcat;
     });
     setItem(newItem);
+    console.log(item)
   };
+
   const filterGuests = (curcat) => {
-    const newItem = Data.filter((newVal) => {
+    const newItem2 = Data.filter((newVal) => {
       return newVal.guest === curcat;
     });
-    setItem(newItem);
+    setGuest(newItem2);
+    console.log(guest)
   };
 
   const filterPrice = (curcat) => {
-    let newItem;
+    let newItem3;
     if(curcat === "20-50$"){
-      newItem = Data.filter((newVal) => {
+      newItem3 = Data.filter((newVal) => {
         return (newVal.price >= 20 && newVal.price <= 50);
       })
     } else if (curcat === "50-150$"){
-        newItem = Data.filter((newVal) => {
+        newItem3 = Data.filter((newVal) => {
           return (newVal.price >= 50 && newVal.price <= 150);
         })
     } else {
-      newItem = Data.filter((newVal) => {
+      newItem3 = Data.filter((newVal) => {
         return (newVal.price >= 150);
       })
     }
-    setItem(newItem);
+    setPrice(newItem3);
+    console.log(price)
   };
+
+  function compareData(item, guest, price){
+    return item.filter((value) => guest.includes(value) && price.includes(value))
+  }
+
   function handleOnClick() {
     console.log(1);
   }
+
+  const sameData = compareData(item, guest, price)
 
   return (
     <div>
@@ -56,15 +70,15 @@ function Filter() {
         />
         <GuestDd 
               filterGuests={filterGuests}
-              setItem={setItem}
+              setItem={setGuest}
         />
         <PriceDd
             filterPrice={filterPrice}
-            setItem={setItem}
+            setItem={setPrice}
         />
         <Button onClick={handleOnClick}><i class="fa fa-search"></i></Button>
         </Stack>
-        <Card item={item} />
+        <Card item={sameData} />
     </div>
   );
 }
