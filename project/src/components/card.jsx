@@ -3,6 +3,11 @@ import ClosePopup from "./closePopup";
 
 const Card = ({ item }) => {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [selectedObject, setSelectedObject] = useState(null);
+
+  const handleClick = (Val) =>{
+    setSelectedObject(Val)  
+  }
   return (
     <>
       <div className="container-fluid">
@@ -19,7 +24,8 @@ const Card = ({ item }) => {
                   setTrigger={setButtonPopup}
                 ></ClosePopup>
                 <div onClick={() => setButtonPopup(true)}>
-                  <div className="card-img-top text-center">
+                  <div onClick={() => handleClick(Val)} className="card-img-top text-center">
+                    {selectedObject }
                     <img src={Val.img} alt={Val.name} className="photo w-75" width="150px" />
                   </div>
                   <div className="card-body">
