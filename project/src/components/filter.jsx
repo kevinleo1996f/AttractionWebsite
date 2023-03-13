@@ -4,7 +4,6 @@ import LocationDd from "./locationDd";
 import React, { useState } from "react";
 import GuestDd from './guestsDd'
 import PriceDd from './PriceDd';
-import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
 function Filter() {
@@ -12,7 +11,6 @@ function Filter() {
   const [guest, setGuest] = useState(Data);
   const [price, setPrice] = useState(Data);
   
-  let filteredItems;
 
   //Filter will receive a value from click and compare with all the category in the database, if it is the same, then it will show the item card.
 
@@ -55,9 +53,6 @@ function Filter() {
     return item.filter((value) => guest.includes(value) && price.includes(value))
   }
 
-  function handleOnClick() {
-    console.log(1);
-  }
 
   const sameData = compareData(item, guest, price)
 
@@ -76,7 +71,6 @@ function Filter() {
             filterPrice={filterPrice}
             setItem={setPrice}
         />
-        <Button onClick={handleOnClick}><i class="fa fa-search"></i></Button>
         </Stack>
         <Card item={sameData} />
     </div>

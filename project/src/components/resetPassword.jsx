@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 
 export default function Reset(){
     const [email, setEmail] = useState("");
@@ -35,21 +36,34 @@ export default function Reset(){
         <div>
             <h1>Reset</h1>
             <form onSubmit={handleSubmit}>
-                <label>email:
-                    <input type="email" value={email} 
-                    onChange={(event) => setEmail(event.target.value)} />
-                </label>
-                <button type="submit">Check the email!</button>
+                <MDBInput
+                    className="my-4 w-50"
+                    type="email"
+                    id="form2Example1"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    />
+                <MDBBtn type="submit" className="mb-4" block>
+                    Check the Email
+                </MDBBtn>
             </form>
-            {isLoggedIn && 
-                <label>New Password:
-                    <input type="password" value={password} 
-                    onChange={(event) => setPassword(event.target.value)} />
-                </label>
+            {isLoggedIn &&
+                <MDBInput
+                className="mb-4 w-25"
+                type="password"
+                id="form2Example2"
+                placeholder="New Password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                />
             }
             {isLoggedIn &&
-                <button onClick={handleClick}>Renew password</button>
-            }
+                <MDBBtn type="submit" className="mb-4" onClick={handleClick} block>
+                Reset Password
+                </MDBBtn>
+            }           
+            
         </div>
     )
 }   

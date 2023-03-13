@@ -1,31 +1,55 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React, { useState } from 'react';
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBCollapse,
+} from 'mdb-react-ui-kit';
 
 
 function NavBar() {
+  const [showBasic, setShowBasic] = useState(false);
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="./">
-            <img
-              alt="logo"
-              src="../icon.jpg"
-              width="40"
-              height="40"
-              className="d-inline-block align-top"
-            />{' '}
-            Explorer
-          </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="justify-content-end">
-            <Nav.Link href="./">Home</Nav.Link>
-            <Nav.Link href="./register">Register/Login</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <MDBNavbar expand='lg' light bgColor='light' className='mb-4'>
+      <MDBContainer fluid>
+        <MDBNavbarBrand href='/' className='ms-5'>
+        <img
+              src='../icon.jpg'
+              height='45'
+              alt='Bear'
+              loading='lazy'
+              className='me-3'
+            />
+            Explorer</MDBNavbarBrand>
+
+        <MDBNavbarToggler
+          aria-controls='navbarSupportedContent'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+          onClick={() => setShowBasic(!showBasic)}
+        >
+          <MDBIcon icon='bars' />
+        </MDBNavbarToggler>
+
+        <MDBCollapse navbar show={showBasic}>
+          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/'>
+                Home
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink href='/register'>Register/Login</MDBNavbarLink>
+            </MDBNavbarItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
   );
 }
 
