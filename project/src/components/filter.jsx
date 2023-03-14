@@ -58,7 +58,7 @@ function Filter() {
 
   return (
     <div>
-      <Stack direction="horizontal" gap={3} className="col-md-5 mx-auto">
+      <Stack direction="horizontal" gap={3} className="col-md-5 col-lg-2  col-sm-5 mx-auto my-3">
         <LocationDd
             filterLocation={filterLocation}
             setItem={setItem}

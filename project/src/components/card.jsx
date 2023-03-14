@@ -4,11 +4,8 @@ import ClosePopup from "./closePopup";
 
 const Card = ({ item }) => {
   const [buttonPopup, setButtonPopup] = useState(false);
-  const [selectedObject, setSelectedObject] = useState(null);
-
-  const handleClick = (Val) =>{
-    setSelectedObject(Val)  
-  }
+  const [popupData,setPopupData] = useState("");
+  
   return (
     <>
       <div className="container-fluid">
@@ -17,27 +14,32 @@ const Card = ({ item }) => {
             return (
             
               <div
-                className="col-md-4 col-sm-6 card my-3 py-3 border-0"
+                className="col-md-4 col-sm-6 col-lg-3 card border-0"
                 key={Val.id}
               >
                 <ClosePopup
                   trigger={buttonPopup}
                   setTrigger={setButtonPopup}
+                  img={popupData.img}
+                  name={popupData.name}
+                  location={popupData.location}
+                  guest={popupData.guest}
+                  price={popupData.price}
+                  duration={popupData.duration}
                 ></ClosePopup>
                 
-                <div onClick={() => setButtonPopup(true)}>
-                  <div onClick={() => handleClick(Val)} className="card-img-top text-center">
-                    {selectedObject }
-                    <img src={Val.img} alt={Val.name} className="photo w-75" width="150px" />
+                <div onClick={() =>{ setButtonPopup(true); setPopupData(Val)}}>
+                  <div className="text-center">
+                    <img src={Val.img} alt={Val.name} className=" w-75 rounded" />
                   </div>
-                  <div className="card-body text-center">
-                    <div className="card-title fw-bold fs-4">
-                      <h1>{Val.name} </h1>
+                  <div className="card-body ms-5">
+                    <div className="card-title fw-bold">
+                      <h3>{Val.name} </h3>
                       <p>{Val.price}$AUD</p>
                     </div>
-                    <div className="card-text">
-                      <p>{Val.location}</p>
-                      <p>{Val.guest} Guests</p>
+                    <div className="card-text text-muted">
+                      <p className='m-0'>{Val.location}</p>
+                      <p className='m-0'>{Val.guest} Guests</p>
                       <p>Duration: {Val.duration}</p>
                     </div>
                   </div>
